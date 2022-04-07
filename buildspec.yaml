@@ -11,8 +11,7 @@ phases:
     commands:
       - pwd
       - ls
-      - cd terra
-      - cd dev
+      - cd profiles
       - ls
       - TF_LOG=DEBUG terraform init
 
