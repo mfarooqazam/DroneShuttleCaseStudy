@@ -1,0 +1,13 @@
+#Not tracking the .terraform folder cos terraform init does it
+DroneShuttle\profiles\dev\.terraform
+#Not tracking tf.state
+*.tfstate
+*.tfstate.*
+#No tracking on logs
+.log
+
+#not tracking overrides
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
