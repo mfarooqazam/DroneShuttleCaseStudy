@@ -1,0 +1,25 @@
+version: 0.2
+
+phases: 
+  install: 
+    commands: 
+      - "apt install unzip -y"
+      - "wget https://releases.hashicorp.com/terraform/1.0.5/terraform_1.0.5_linux_amd64.zip"
+      - "unzip terraform_1.0.5_linux_amd64.zip"
+      - "mv terraform /usr/local/bin/"
+  pre_build:
+    commands:
+      - pwd
+      - ls
+      - cd Final_aws_case_study
+      - cd profiles
+      - ls
+      - TF_LOG=DEBUG terraform init -backend-config="bucket=tf-bucket-s3-staging-terraform" -backend-config="key=path/path/terraform-tfstate" -backend-config="region=us-east-1" -backend-config="encrypt=false" -backend-config="dynamodb_table=tf-state-dynamo-staging-terraform"
+
+  build:
+    commands:
+      - terraform plan -lock=false
+
+  post_build:
+    commands:
+      - echo "terraform plan completed on ´date´"
