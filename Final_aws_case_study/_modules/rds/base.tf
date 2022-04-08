@@ -18,7 +18,7 @@ resource "aws_db_subnet_group" "rds_subnet_group" {
 #Aurora DB
 resource "aws_rds_cluster" "RDS_cluster" {
   cluster_identifier     = "ds-db-cluster"
-  availability_zones     = [data.aws_availability_zones.available-AZ.names[0], data.aws_availability_zones.available-AZ.names[1]]
+  availability_zones     = data.aws_availability_zones.available-AZ.names
   engine                 = var.db_engine_type
   engine_version         = var.db_engine_version
   database_name          = var.db_name
