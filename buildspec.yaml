@@ -14,7 +14,7 @@ phases:
       - cd Final_aws_case_study
       - cd profiles
       - ls
-      - TF_LOG=DEBUG terraform init backend-config="../environment/backend_staging.tfvars"
+      - TF_LOG=DEBUG terraform init -backend-config="bucket=tf-bucket-s3-staging-terraform" -backend-config="key=path/path/terraform-tfstate" -backend-config="region=eu-central-1" -backend-config="encrypt=false" -backend-config="dynamodb_table=tf-state-dynamo-staging-terraform"
 
   build:
     commands:
