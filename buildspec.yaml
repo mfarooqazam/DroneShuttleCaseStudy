@@ -14,7 +14,7 @@ phases:
       - cd Final_aws_case_study
       - cd profiles
       - ls
-      - TF_LOG=DEBUG terraform init
+      - TF_LOG=DEBUG terraform init -reconfigure-backend-config="../environments/backend_staging.tfvars"
 
   build:
     commands:
